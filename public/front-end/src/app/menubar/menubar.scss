@@ -1,0 +1,41 @@
+$menu-bg-color-primary:  #009688; //teal-500
+$menu-color-unselected: #fff;
+
+// $sidebar-color-active: rgb(255,64,129);
+$sidebar-color-active: #ffd740;
+
+/*
+ * lg-navbar menu topbar show > 600px
+ * xs-navbar menu topbar show <= 600px
+*/
+.lg-navbar .md-button._md-nav-button.md-unselected,
+.xs-navbar md-icon,
+md-menu md-icon.navbar-icon{
+    color: $menu-color-unselected;
+}
+.md-unselected md-icon{
+    color: $menu-color-unselected !important;
+}
+
+/*
+ * menu sidebar show < 600px
+*/
+.md-sidenav-fixed{
+    md-sidenav, md-backdrop{
+        position: fixed;
+    }
+    md-sidenav{
+        a{
+            text-transform: uppercase;
+            font-weight: 500;
+            font-size: 14px;
+        }
+        .active{
+            color: $sidebar-color-active;
+            border-bottom: 1px solid $sidebar-color-active;
+            md-icon{
+                color: $sidebar-color-active;
+            }
+        }
+    }
+}

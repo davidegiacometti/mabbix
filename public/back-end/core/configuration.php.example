@@ -1,0 +1,32 @@
+<?php
+// URL of Zabbix index.php
+define('ZABBIX_INDEX_URL', 'http://localhost/zabbix/index.php');
+// URL of Zabbix api_jsonrpc.php
+define('ZABBIX_API_URL', 'http://localhost/zabbix/api_jsonrpc.php');
+// Zabbix admin user
+define('ZABBIX_API_USR', 'user');
+// Password of the admin user
+define('ZABBIX_API_PWD', 'password');
+// URL of Zabbix chart2.php
+define('ZABBIX_CHART2_URL', 'http://localhost/zabbix/chart2.php');
+// Database engine
+define('DB_ENGINE', 'mysql');
+// Database host
+define('DB_HOST', 'localhost');
+// Database port
+define('DB_PORT', '3306');
+// Database schema
+define('DB_SCHEMA', 'mabbix');
+// Database user
+define('DB_USR', 'user');
+// Database password
+define('DB_PWD', 'password');
+// Whether to log requests
+define('DEBUG', true);
+// Temporary directory (without the trailing slash!)
+define('TMP', '/tmp');
+// Name of the file where the requests are logged in the temporary directory
+define('DEBUG_LOG', 'debug.log');
+// JWT secret key
+define('JWT_KEY', 'RANDOM-STRING');
+?>

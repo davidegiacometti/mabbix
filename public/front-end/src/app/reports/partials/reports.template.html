@@ -1,0 +1,97 @@
+<div layout="row">
+    <div flex="80">
+        <md-input-container class="md-icon-float md-block">
+            <label>Filter Report...</label>
+            <md-icon md-svg-src="action:ic_search_24px" aria-label="Filter Report"></md-icon>
+            <input ng-model="vm.search" type="text">
+        </md-input-container>
+    </div>
+    <div flex="20">
+        <md-button aria-label="add report" class="md-fab md-button md-ink-ripple md-fab-rigth" ng-click="vm.addReport()" ng-if="vm.multiselect.length <= 0">
+            <md-tooltip md-direction="top" md-visible="tooltipVisible">Add Report</md-tooltip>
+            <md-icon md-svg-src="content:ic_add_24px" aria-label="Add New Report"></md-icon>
+        </md-button>
+
+        <md-fab-speed-dial ng-if="vm.multiselect.length > 0" md-direction="left" md-open="vm.isMultiActionOpen" class="md-scale md-fab-rigth">
+            <md-fab-trigger>
+                <md-button aria-label="multiaction" class="md-fab md-button md-ink-ripple">
+                    <md-icon md-svg-src="navigation:ic_menu_24px" aria-label="Add New Report"></md-icon>
+                </md-button>
+            </md-fab-trigger>
+
+            <md-fab-actions>
+                <md-button aria-label="delete" class="md-fab md-raised md-mini" ng-click="vm.delete($event, vm.multiselect, true)">
+                    <md-icon md-svg-src="action:ic_delete_24px" aria-label="delete"></md-icon>
+                    <md-tooltip md-direction="top" md-visible="tooltipVisible" md-autohide="false">Delete Selected</md-tooltip>
+                </md-button>
+
+                <md-button aria-label="png" class="md-fab md-raised md-mini" ng-click="vm.png(vm.multiselect, true)">
+                    <md-icon md-svg-src="image:ic_photo_library_24px" aria-label="png"></md-icon>
+                    <md-tooltip md-direction="bottom" md-visible="tooltipVisible" md-autohide="false">Export PNG</md-tooltip>                    
+                </md-button>
+
+                <md-button aria-label="png" class="md-fab md-raised md-mini" ng-click="vm.pdf(vm.multiselect, true)">
+                    <md-icon md-svg-src="image:ic_picture_as_pdf_24px" aria-label="pdf"></md-icon>
+                    <md-tooltip md-direction="top" md-visible="tooltipVisible" md-autohide="false">Export PDF</md-tooltip>                    
+                </md-button>
+
+            </md-fab-actions>
+        </md-fab-speed-dial>
+
+    </div>
+</div>
+
+<md-list ng-cloak>
+    <div class="entries-number ligth-label" flex="50">
+        <span> Show </span> 
+        <md-select flex="5" ng-model="vm.pageSize" id="pageSize" class="form-control page-size-select" aria-label="page length">
+            <md-option ng-value="length" ng-repeat="length in vm.pageLengths">{{length}}</md-option>
+        </md-select>
+        <span> entries</span>
+    </div>
+    <md-subheader class="md-no-sticky" flex="50">Reports list</md-subheader>
+    <div ng-repeat="report in vm.reportsList | filter: vm.search | startFrom:vm.currentPage*vm.pageSize | limitTo:vm.pageSize">
+        <md-checkbox aria-label="multiselect" ng-click="vm.toggle(report.id, vm.multiselect)" class="multiselect"></md-checkbox>
+        <md-list-item class="md-2-line">
+            <div class="md-list-item-text">
+                <h3>{{report.name}}</h3>
+                <p>{{report.host}}</p>
+            </div>
+            <md-menu class="md-secondary">
+                <md-button class="md-icon-button">
+                    <md-icon md-svg-src="navigation:ic_more_vert_24px" aria-label="Add New Report"></md-icon>
+                </md-button>
+                <md-menu-content width="4">
+                    <md-menu-item>
+                        <md-button ng-click="vm.detail(report.id)"><md-icon md-svg-src="action:ic_pageview_24px" aria-label="detail"></md-icon>Detail</md-button>
+                    </md-menu-item>
+                    <md-menu-item>
+                        <md-button ng-click="vm.png(report.id, false)"><md-icon md-svg-src="image:ic_photo_library_24px" aria-label="png"></md-icon>Export PNG</md-button>
+                    </md-menu-item>
+                    <md-menu-item>
+                        <md-button ng-click="vm.pdf(report.id, false)"><md-icon md-svg-src="image:ic_picture_as_pdf_24px" aria-label="pdf"></md-icon>Export PDF</md-button>
+                    </md-menu-item>                   
+                    <md-menu-item>
+                        <md-button ng-click="vm.delete($event, report.id, false)"><md-icon md-svg-src="action:ic_delete_24px" aria-label="pdf"></md-icon>Delete</md-button>
+                    </md-menu-item>
+                </md-menu-content>
+            </md-menu>
+        </md-list-item>
+        <md-divider></md-divider>
+    </div>
+</md-list>
+
+<div class="ligth-label showing-info-pagination" flex="50">
+    Showing {{vm.showingInfoPagination()}} of {{vm.reportsList.length}}
+</div>
+<div class="md-fab-rigth pagination-button" flex="50">
+    <md-button ng-disabled="vm.currentPage == 0" class="md-icon-button md-primary" ng-click="vm.currentPage=vm.currentPage-1">
+        <md-tooltip md-direction="top" md-visible="tooltipVisible">Prev</md-tooltip>
+        <md-icon md-svg-src="navigation:ic_arrow_back_24px" aria-label="Add New Report"></md-icon>
+    </md-button>
+    <span class="ligth-label">{{vm.currentPage+1}}/{{vm.numberOfPages()}}</span>
+    <md-button ng-click="vm.currentPage=vm.currentPage+1" class="md-icon-button md-primary" ng-disabled="vm.currentPage >= vm.reportsList.length/vm.pageSize - 1">
+        <md-tooltip md-direction="top" md-visible="tooltipVisible">Next</md-tooltip>
+        <md-icon md-svg-src="navigation:ic_arrow_forward_24px" aria-label="Add New Report"></md-icon>
+    </md-button>
+</div>

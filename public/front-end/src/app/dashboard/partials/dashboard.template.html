@@ -1,0 +1,15 @@
+<md-card md-theme="dashboard-tile">
+    <md-card-title>        
+        <md-card-title-media>
+            <div class="md-media-lg card-media dashboard-icon">
+                <md-icon md-svg-icon="editor:ic_insert_chart_24px" aria-label="Report"></md-icon>
+            </div>
+        </md-card-title-media>
+        <md-card-title-text>            
+            <div class="md-subhead subhead-reports"><div class="dashboard-record-number">{{vm.reportsNumber}}</div> <span ng-if="vm.reportsNumber == 1" class="dashboard-record-label" >report</span><span ng-if="vm.reportsNumber > 1 || vm.reportsNumber == 0" class="dashboard-record-label">reports</span> </div>
+        </md-card-title-text>
+    </md-card-title>
+    <md-card-actions layout="row" layout-align="end center">
+        
+    </md-card-actions>
+</md-card>

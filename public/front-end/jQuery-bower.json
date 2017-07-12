@@ -1,0 +1,42 @@
+{
+  "name": "jQuery",
+  "description": "jquery",
+  "license": "MIT",
+  "main": "./dist/jquery.min.js",
+  "dependencies": {},
+  "ignore": [
+    "**/.*",
+    "**/tsconfig.json",
+    "**/webpack.config.js",
+    "**/node_modules",
+    "**/ng2*",
+    "**/typings",
+    "commonjs",
+    "bower_components",
+    "component.json",
+    "package.json",
+    "lib",
+    "config",
+    "sample",
+    "test",
+    "tests",
+    "ngdoc_assets",
+    "Gruntfile.js",
+    "files.js",
+    "**/.github",
+    "**/build",
+    "**/external"
+  ],
+  "version": "3.1.1",
+  "_release": "3.1.1",
+  "homepage": "https://github.com/jquery/jquery",
+  "_resolution": {
+    "type": "version",
+    "tag": "3.1.1",
+    "commit": "ee2e377494a882f043e6d8abc67ac6370ee83d9c"
+  },
+  "_source": "https://github.com/jquery/jquery.git",
+  "_target": "^3.1.1",
+  "_originalSource": "jQuery",
+  "_direct": true
+}

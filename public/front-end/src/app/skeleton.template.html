@@ -1,0 +1,28 @@
+<div layout="column" class="content-wrapper">
+    <md-content class="md-sidenav-fixed menubar-container" ui-view="menubar" md-colors="{background: 'teal-500'}"></md-content>
+
+    <md-content layout-padding class="main-container">
+        <div layout="row">
+            <div flex="90" flex-offset="5" ui-view="container"></div>
+        </div>
+
+        <md-button aria-label="menu" class="md-fab md-fab-bottom-right md-button md-ink-ripple fab-scroll-to-top" ng-click="vm.scrollTop()"
+            ng-class="vm.toTop">
+            <md-tooltip md-direction="top" md-visible="tooltipVisible">To Top</md-tooltip>
+            <md-icon md-svg-src="navigation:ic_expand_less_24px" aria-label="scroll to top"></md-icon>
+        </md-button>
+
+    </md-content>
+</div>
+
+<div layout="row" flex="noshrink" layout-align="center center" class="footer layout-align-center-center layout-row flex-noshrink">
+    <div id="license-footer" flex="" class="ng-binding flex">
+        Made with
+        <md-icon md-svg-src="action:ic_favorite_24px" aria-label="heart" id="icon-heart"></md-icon> by doubleD
+    </div>
+    <div class="app-version" ng-click="vm.openCredits()">About</div>
+</div>
+
+<md-content ng-if="vm.isLoading" class="loader" layout="row" layout-sm="column" layout-align="center center">
+    <md-progress-circular class="md-accent" md-mode="indeterminate"></md-progress-circular>
+</md-content>

@@ -1,0 +1,38 @@
+<md-dialog aria-label="login" class="login">
+    <form name="loginForm">
+
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>Mabbix... The magic wizard for Zabbix!</h2>
+            </div>
+        </md-toolbar>
+
+        <md-content layout-padding>
+
+            <md-input-container class="md-block">
+                <label>Username</label>
+                <md-icon md-svg-icon="social:ic_person_24px" class="email"></md-icon>
+                <input required name="clientName" ng-model="vm.username">
+                <div ng-messages="username.$error">
+                    <div ng-message="required">This is required.</div>
+                </div>
+            </md-input-container>
+
+            <md-input-container class="md-block">
+                <label>Password</label>
+                <md-icon md-svg-icon="action:ic_lock_24px" class="email"></md-icon>
+                <input required name="clientName" ng-model="vm.password" type="password">
+                <div ng-messages="password.$error">
+                    <div ng-message="required">This is required.</div>
+                </div>
+            </md-input-container>
+
+            <md-input-container class="md-block">
+                 <md-button type="submit" class="md-primary md-raised" ng-click="vm.login()" flex="100" ng-disabled="loginForm.$invalid">
+                    Sign In
+                </md-button>
+            </md-input-container>
+
+        </md-content>
+    </form>
+</md-dialog>

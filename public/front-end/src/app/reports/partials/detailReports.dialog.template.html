@@ -1,0 +1,59 @@
+<md-dialog class="md-detail-report-dialog">
+
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2>{{vm.report.name}}</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="vm.eventClick('delete')">
+                <md-icon md-svg-src="content:ic_clear_24px" aria-label="close"></md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+
+
+    <md-dialog-content layout="row">
+        <md-list ng-cloak class="report-detail-list">
+
+            <md-list-item>
+                <div layout="row">
+                    <div flex="40">Start Time</div>
+                    <div flex="60">{{vm.report.stime}}</div>                    
+                </div>
+            </md-list-item>
+            <md-list-item>
+                <div layout="row">
+                    <div flex="40">Period</div>
+                    <div flex="60">{{vm.report.period}} (s)</div>              
+                </div>
+            </md-list-item>
+            <md-list-item>
+                <div layout="row">
+                    <div flex="40">Width</div>
+                    <div flex="60">{{vm.report.width}} (px)</div>              
+                </div>
+            </md-list-item>
+            <md-list-item>
+                <div layout="row">
+                    <div flex="40">Height</div>
+                    <div flex="60">{{vm.report.height}} (px)</div>              
+                </div>
+            </md-list-item>
+            <md-divider></md-divider>
+            <md-subheader class="md-no-sticky">Graph list</md-subheader>
+            
+            <md-list ng-cloak ng-repeat="graph in vm.graphList">
+                <md-list-item>
+                    {{graph.name}}
+                </md-list-item>
+            </md-list>
+
+        </md-list>
+    </md-dialog-content>
+
+    <md-dialog-actions layout="row">
+        <md-button class="md-raised md-primary" type="submit" ng-click="vm.eventClick('delete')">
+            Close
+        </md-button>
+    </md-dialog-actions>
+
+</md-dialog>

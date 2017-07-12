@@ -1,0 +1,31 @@
+<md-input-container class="md-block">
+    <label>API URL</label>
+    <input name="url" ng-model="vm.url">
+</md-input-container>
+
+<md-input-container class="md-block">
+    <label>METHOD</label>
+    <md-select ng-model="vm.method">
+        <md-option value="POST">POST</md-option>
+        <md-option value="GET">GET</md-option>
+    </md-select>
+</md-input-container>
+
+<md-input-container class="md-block">
+    <label>REQUEST</label>
+    <div ng-jsoneditor ng-model="vm.request.data" options="vm.request.options" class="custom-jsonEditor"></div>
+</md-input-container>
+<md-button class="md-raised md-primary" ng-click="vm.switchView('request')">Switch Request view</md-button>
+
+<md-button class="md-raised md-warn" ng-click="vm.testAPI()">go!</md-button>
+
+
+<md-input-container class="md-block">
+    <label>RESPONSE</label>
+    <div ng-jsoneditor ng-model="vm.response.data" options="vm.response.options" class="custom-jsonEditor"></div>
+</md-input-container>
+<md-button class="md-raised md-primary" ng-click="vm.switchView('response')">Switch Response view</md-button>
+<!--
+<pre>
+    {{vm.rawResponse | json}}
+</pre>-->

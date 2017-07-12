@@ -1,0 +1,54 @@
+.md-credits-dialog{
+    min-width: 70%;
+    md-grid-list {
+        margin: 8px;
+    }
+    .gray {
+        background: #f5f5f5;
+    }
+    .green {
+        background: #b9f6ca;
+    }
+    .yellow {
+        background: #ffff8d;
+    }
+    .blue {
+        background: #84ffff;
+    }
+    .red {
+        background: #ff8a80;
+    }
+    .pink {
+        background: #ff80ab;
+    }
+    .lightPurple {
+        background: #8c9eff;
+    }
+    .purple {
+        background: #b388ff;
+    }
+    .deepBlue {
+        background: #448aff;
+    }
+    .darkBlue {
+        background: #80d8ff;
+    }
+
+    md-grid-tile {
+        transition: all 400ms ease-out 50ms;
+    }
+    .tile-content{
+        font-size: xx-large;
+        color: #fff;
+    }
+}
+.credits-icon{
+    width: 48px;
+    height: 48px;
+}
+.credits-center{
+    text-align: center;
+    a{
+        text-decoration: none;
+    }
+}

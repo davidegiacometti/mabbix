@@ -1,0 +1,83 @@
+.md-fab-rigth{
+    float: right;
+}
+md-select-header{
+    box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.1), 0 0 0 0 rgba(0, 0, 0, 0.14), 0 0 0 0 rgba(0, 0, 0, 0.12);
+    padding-left: 10.667px;
+    height: 48px;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: auto;
+    input{
+        border: none;
+        outline: none;
+        height: 100%;
+        width: 100%;
+        padding: 0;
+    }
+}
+.report-detail-list{
+    width: 100%;
+    md-list-item > div.layout-row{
+        width: 100%;
+        :first-child{
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 0.010em;
+            line-height: 1.2em;
+            color: rgba(0,0,0,0.54);
+        }
+    }
+}
+
+.md-detail-report-dialog{
+    min-width: 50%;
+}
+.dialog-download-report{
+    text-align: center;
+}
+
+
+//PAGINATION
+.entries-number{
+    display: inline-flex;
+    margin-top: 16px;
+    float: right;
+    *{
+        display: inline-table !important;
+    }
+    md-select{
+        margin-top: -3px;
+        margin-bottom: 0px;
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+}
+.ligth-label{
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.010em;
+    line-height: 1.2em;
+    color: rgba(0,0,0,0.54);
+}
+.showing-info-pagination{
+    margin-top: 20px;
+}
+.pagination-button{
+    margin-top: -31px;
+}
+
+md-checkbox.multiselect {
+    float: left;
+    margin-bottom: 0px;
+    margin-top: 26px;
+}
+
+.page-size-select{
+     md-select-value span{
+        padding-top: 2px;
+        margin-left: 8px;  
+     }
+}

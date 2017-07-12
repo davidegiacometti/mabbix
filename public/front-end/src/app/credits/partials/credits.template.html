@@ -1,0 +1,33 @@
+<md-dialog class="md-credits-dialog">
+
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2>
+                <md-icon md-svg-src="action:ic_info_outline_24px" aria-label="info"></md-icon> About</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="vm.close()">
+                <md-icon md-svg-src="content:ic_clear_24px" aria-label="close"></md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+
+
+    <md-dialog-content layout-padding>
+
+        <div layout="row" layout-xs="column">
+            <div flex class="credits-center">
+                <md-icon md-svg-src="action:ic_settings_24px" aria-label="front-end" class="credits-icon"></md-icon>
+                <p>Back-end: {{vm.APIversion}}</p>
+            </div>
+            <div flex class="credits-center">
+                <md-icon md-svg-src="hardware:ic_desktop_windows_24px" aria-label="front-end" class="credits-icon"></md-icon>
+                <p>Front-end: {{vm.clientVersion}}</p>
+            </div>
+            <div flex class="credits-center">
+                <md-icon md-svg-src="assets/github.svg" aria-label="front-end" class="credits-icon"></md-icon>
+                <p><a href="https://github.com/davidegiacometti/mabbix" class="md-primary" target="_blank">Check our repo!</a></p>
+            </div>
+        </div>
+
+    </md-dialog-content>
+</md-dialog>

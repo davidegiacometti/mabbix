@@ -1,0 +1,50 @@
+<md-dialog class="md-detail-report-dialog">
+
+    <md-toolbar class="md-warn">
+        <div class="md-toolbar-tools">
+            <h2><md-icon md-svg-src="social:ic_mood_bad_24px" aria-label="close"></md-icon> Configuration error</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="vm.reload()">
+                <md-icon md-svg-src="action:ic_autorenew_24px" aria-label="close"></md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+
+
+    <md-dialog-content layout-padding>
+        
+        <p>We are very sorry, but something is broken. Please, check errors below and try to reload application.<br/>
+        We suggest to take notice about errors, and contact your system administrator.
+            <dl>
+                <dt>Name:</dt>
+                <dd>Morgana</dd>
+
+                <dt>Error Type:</dt>
+                <dd>{{vm.errorType}}</dd>
+
+                <dt>API Version:</dt>
+                <dd>{{vm.APIversion}}</dd>
+
+                <dt>Client Version:</dt>
+                <dd>{{vm.clientVersion}}</dd>
+
+                <dt>Configuration file:</dt>
+                <dd>
+                    <span ng-if="vm.errorType=='FRONTEND'">/config.json</span>
+                    <span ng-if="vm.errorType=='BACKEND'">/public/backend/core/configuration.php</span>
+                </dd>
+            </dl>
+        </p>
+
+        <md-list ng-cloak>
+            <md-subheader class="md-no-sticky md-warn">Error(s): </md-subheader>
+            <div ng-repeat="error in vm.errorList">
+                <md-list-item>
+                    {{error}}
+                </md-list-item>
+                <md-divider ></md-divider>
+            </div>
+        </md-list>
+
+    </md-dialog-content>
+</md-dialog>

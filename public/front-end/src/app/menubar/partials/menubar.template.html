@@ -1,0 +1,67 @@
+<md-nav-bar aria-label="large menu sidebar" md-selected-nav-item="vm.defaultNavItem" hide-xs class="lg-navbar" ng-if="vm.showMenu">
+
+    <md-nav-item ng-repeat="item in vm.menuElements" md-nav-sref="app.{{item.state}}({{item.params}})" ng-click="vm.setActive(item.name)" name="{{item.name}}">
+        <md-icon md-svg-icon="{{item.icon}}" aria-label="Account"></md-icon>
+        {{item.label}}
+    </md-nav-item>
+
+    <span flex></span>
+    <li>
+        <md-menu class="user-menu">
+            <md-button aria-label="user menu" ng-click="vm.openMenu($mdMenu, $event)">
+                <md-icon md-svg-icon="action:ic_account_circle_24px" aria-label="Account" class="navbar-icon"></md-icon> {{vm.user}}
+            </md-button>
+            <md-menu-content width="4">
+                <md-menu-item>
+                    <md-button ng-click="vm.logout()">
+                        <md-icon md-svg-icon="action:ic_exit_to_app_24px" aria-label="Logout"></md-icon>
+                        Logout
+                    </md-button>
+                </md-menu-item>
+            </md-menu-content>
+        </md-menu>
+    </li>
+
+</md-nav-bar>
+
+<md-nav-bar aria-label="xsmall menu sidebar" hide-gt-xs class="xs-navbar" ng-if="vm.showMenu">
+    <md-button aria-label="Open Sidebar Menu" class="md-icon-button" ng-click="vm.toggleSidebar()">
+        <md-icon md-svg-icon="navigation:ic_menu_24px" aria-label="menu"></md-icon>
+    </md-button>
+
+    <span flex></span>
+    <md-menu class="user-menu">
+        <md-button aria-label="user menu" ng-click="vm.openMenu($mdMenu, $event)">
+            <md-icon md-svg-icon="action:ic_account_circle_24px" aria-label="Account"></md-icon> {{vm.user}}
+        </md-button>
+        <md-menu-content width="4">
+            <md-menu-item>
+                <md-button ng-click="vm.logout()">
+                    <md-icon md-svg-icon="action:ic_exit_to_app_24px" aria-label="Logout"></md-icon>
+                    Logout
+                </md-button>
+            </md-menu-item>
+        </md-menu-content>
+    </md-menu>
+
+</md-nav-bar>
+
+<md-sidenav class="md-sidenav-left md-whiteframe-4dp" md-component-id="left" hide-gt-xs ng-if="vm.showMenu">
+
+    <md-toolbar class="md-theme-light">
+        <h1 class="md-toolbar-tools">MabbiX</h1>
+    </md-toolbar>
+
+    <md-content>
+        <div layout="column" layout-align="top left">
+
+            <md-menu-item ng-repeat="item in vm.menuElements">
+                <md-button ui-sref="app.{{item.state}}({{item.params}})" ng-click="vm.setActive(item.name)" ng-class="item.class">
+                    <md-icon md-svg-icon="{{item.icon}}" aria-label="Account"></md-icon> {{item.label}}
+                </md-button>
+            </md-menu-item>
+
+        </div>
+    </md-content>
+
+</md-sidenav>

@@ -1,0 +1,109 @@
+<md-dialog class="md-new-repor-dialog">
+
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2>New Report</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="vm.eventClick('delete')">
+                <md-icon md-svg-src="content:ic_clear_24px" aria-label="close"></md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+
+
+    <md-dialog-content layout="row">
+
+        <form name="newEventForm" flex="100">
+            <div class="md-dialog-content" flex="100">
+
+                <div layout="row">
+                    <md-input-container flex="100">
+                        <label>Name</label>
+                        <input ng-model="vm.name" required>
+                    </md-input-container>
+                </div>
+
+                <div layout="row">
+                    <md-input-container flex="100">
+                        <label>Host</label>
+                        <md-select name="type" ng-model="vm.host" md-on-close="vm.clearFilterHosts()" ng-change="vm.hostChange()" required>
+                            <md-select-header>
+                                <input ng-model="vm.searchHost" type="search" ng-keydown="vm.fixFilterHost($event)" placeholder="Filter Hosts above...">
+                            </md-select-header>
+                            <md-option ng-value="h.value" ng-repeat="h in vm.avaiableHosts | filter: vm.searchHost">{{h.name}}</md-option>
+                        </md-select>
+                    </md-input-container>
+                </div>                
+                
+                <div layout="row">
+                    <md-input-container flex="100">
+                        <md-switch class="md-primary" name="special" ng-model="vm.emptyStartTime">
+                            Use dynamic start time <small>(or unselect and declared static below)</small>
+                        </md-switch>
+                    </md-input-container>
+                </div>   
+
+                <div layout="row">
+                    <md-input-container flex="50">                        
+                        <label>Date</label>
+                        <md-datepicker ng-model="vm.startDate" md-current-view="month" ng-required="!vm.emptyStartTime" ng-disabled="vm.emptyStartTime"></md-datepicker>
+                    </md-input-container>
+                    <md-input-container flex="10">
+                        <label>HH</label>
+                        <input type="number" step="any" name="rate" ng-model="vm.startHour" min="0" max="23" ng-required="!vm.emptyStartTime" ng-disabled="vm.emptyStartTime"/>
+                    </md-input-container>
+                    <md-input-container flex="10">
+                        <label>mm</label>
+                        <input type="number" step="any" name="rate" ng-model="vm.startMinute" min="0" max="59" ng-disabled="vm.emptyStartTime"/>
+                    </md-input-container>
+                    <md-input-container flex="10">
+                        <label>ss</label>
+                        <input type="number" step="any" name="rate" ng-model="vm.startSecond" min="0" max="59" ng-disabled="vm.emptyStartTime"/>
+                    </md-input-container>
+                </div>
+
+                <div layout="row">
+                    <md-input-container flex="100">                        
+                        <label>Period (sec)</label>
+                        <input type="number" step="any" name="rate" ng-model="vm.period" min="3600" required/>
+                         <p class="md-caption">{{vm.period/3600}} h</p>
+                    </md-input-container>
+                </div>
+
+                <div layout="row">
+                    <md-input-container flex="50">                        
+                        <label>Graph width (px)</label>
+                        <input type="number" step="any" name="rate" min="100" ng-model="vm.width"/>
+                    </md-input-container>
+                    <md-input-container flex="50">                        
+                        <label>Graph heigth (px)</label>
+                        <input type="number" step="any" name="rate" min="100" ng-model="vm.height"/>
+                    </md-input-container>
+                </div>
+
+                <div layout="row">
+                    <md-input-container flex="100">             
+                        <label>Graphs</label>
+                        <md-select ng-model="vm.graphs" md-on-close="vm.clearFilterGraphs()" multiple required>
+                            <md-select-header>
+                                <input ng-if="vm.host" ng-model="vm.searchGraph" type="search" ng-keydown="vm.fixFilterGraph($event)" placeholder="Filter Graphs above...">
+                                <input ng-if="!vm.host" type="search" placeholder="Select an Host first" disabled>
+                            </md-select-header>
+                            <md-option ng-value="g.value" ng-repeat="g in vm.avaiableGraphs | filter: vm.searchGraph">{{g.name}}</md-option>
+                        </md-select>
+                    </md-input-container>
+                </div>
+            </div>
+        </form>
+    </md-dialog-content>
+
+    <md-dialog-actions layout="row">
+        <md-button class="md-raised md-warn" ng-click="vm.eventClick('delete')">
+            Cancel
+        </md-button>
+        <md-button class="md-raised md-primary" type="submit" ng-click="vm.eventClick('insert')" ng-disabled="newEventForm.$invalid">
+            Save
+        </md-button>
+    </md-dialog-actions>
+
+</md-dialog>
