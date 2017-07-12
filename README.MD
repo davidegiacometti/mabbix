@@ -29,7 +29,7 @@ Installation
 
 ```bash
 apt-get install php5-curl
-wget https://github.com/davidegiacometti/mabbix/archive/mabbix-0.1.0.tar.gz
+wget https://github.com/davidegiacometti/mabbix/releases/download/beta1/mabbix-0.1.0.tar.gz
 tar zxpf mabbix-0.1.0.tar.gz
 mv mabbix /opt
 mysql -u[USER] -h[HOST] -p -e "CREATE DATABASE mabbix CHARACTER SET utf8"
