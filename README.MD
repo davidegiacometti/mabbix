@@ -1,3 +1,10 @@
+Discontinued
+============
+
+As of November 29, 2018, this project is no longer maintained. If you're interested in developing or maintaining feel free to fork it.  
+Not working in Zabbix 4 due to changes in chart2.php (refer to issue [#2](../../issues/2)).  
+Still working with Zabbix 3 but I pesonally don't recommend a production usage.
+
 Welcome to Mabbix
 ======
 
